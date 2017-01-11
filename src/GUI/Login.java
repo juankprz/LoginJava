@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juan
@@ -15,7 +17,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-                                     initComponents();
+        initComponents();
     }
 
     /**
@@ -105,12 +107,31 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String var="USUARIO";
+        String var3="123";
         String var2=jTextField1.getText();
-        if(var2.equals(var)){
-            System.out.println("USUARIO");
+        //Captura de contraseña
+        char[] arrayC = jPasswordField1.getPassword(); 
+        //generacion de string de contraseña
+        String pass = new String(arrayC); 
+        if(jTextField1.getText().length()==0 || jPasswordField1.getPassword().length==0){
+          JOptionPane.showMessageDialog(null,"LLene  Todos los campos");
+          
         }else{
-            System.out.println("No es el usuARIO");
+            if(var2.equals(var)&&var3.equals(pass)){
+      JOptionPane.showMessageDialog(null, "Bienvenido", 
+        "", JOptionPane.INFORMATION_MESSAGE);
+      
+        }else{
+         
+        JOptionPane.showMessageDialog(null, "Error de acceso", 
+        "Datos invalidos", JOptionPane.ERROR_MESSAGE);
+         jTextField1.setText("");
+        jPasswordField1.setText("");
+        jTextField1.requestFocus();
+            
+        }   
         }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
