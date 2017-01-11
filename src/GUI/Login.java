@@ -15,7 +15,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        initComponents();
+                                     initComponents();
     }
 
     /**
@@ -102,8 +102,12 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(jTextField1.getText()=="USUARIO"){
+        String var="USUARIO";
+        String var2=jTextField1.getText();
+        if(var2.equals(var)){
             System.out.println("USUARIO");
+        }else{
+            System.out.println("No es el usuARIO");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
