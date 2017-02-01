@@ -1,5 +1,6 @@
 
 import Persistecia.Conexion;
+import Persistecia.verusuario;
 import com.mysql.jdbc.Connection;
 import java.sql.SQLException;
 
@@ -20,9 +21,11 @@ public class TEST {
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         // TODO code application logic here
-        String sql="SELECT * FROM Usuarios Where Nombre='juan';";
-       Conexion obj = new Conexion();
-       obj.Consultar(sql);
+        String sql="SELECT * FROM Usuarios Where Nombre='perez';";
+       verusuario obj = new verusuario();
+       int consulta= obj.Consultarusuario(sql);
+       System.out.println(""+consulta);
+       
       
     }
     

@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Persistecia.verusuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -117,19 +118,20 @@ public class Login extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null,"LLene  Todos los campos");
           
         }else{
-            if(var2.equals(var)&&var3.equals(pass)){
-      JOptionPane.showMessageDialog(null, "Bienvenido", 
-        "", JOptionPane.INFORMATION_MESSAGE);
-      
-        }else{
-         
-        JOptionPane.showMessageDialog(null, "Error de acceso", 
-        "Datos invalidos", JOptionPane.ERROR_MESSAGE);
-         jTextField1.setText("");
+       String sql="SELECT * FROM Usuarios Where Nombre='"+var2+"';";
+     
+       verusuario obj = new verusuario();
+       int consulta= obj.Consultarusuario(sql);
+      if(consulta==0){
+          JOptionPane.showMessageDialog(null,"Usuario no encontrado");
+           jTextField1.setText("");
         jPasswordField1.setText("");
         jTextField1.requestFocus();
-            
-        }   
+      }
+      if(consulta==1){
+          JOptionPane.showMessageDialog(null,"Usuario  encontrado");
+          
+      }
         }
        
     }//GEN-LAST:event_jButton1ActionPerformed
