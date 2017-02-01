@@ -20,8 +20,6 @@ public class verusuario {
     Conexion obj = new Conexion();
 
   public int Consultarusuario( String sql) {
-        String nombre = null;
-        String nombre1 = null;
         int consulta = 0;
         try {
             Statement instancia =obj.conectar().createStatement();
@@ -37,5 +35,26 @@ public class verusuario {
         }
  
        return consulta;
+}   
+   public int Consultarpass( String sqll, String pass) {
+        String contra = null;
+        int acceso=0;
+        try {
+            Statement instancia =obj.conectar().createStatement();
+             ResultSet rs = instancia.executeQuery(sqll);
+           
+            while(rs.next()){
+             contra=rs.getString("Password");
+            }
+          //c¿ierra conexion
+          if(contra.equals(pass)){
+              acceso=1;
+          }
+          obj.conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+       return acceso;
 }   
 }
