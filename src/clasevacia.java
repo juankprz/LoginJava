@@ -9,5 +9,8 @@
  * @author 1103220136
  */
 public class clasevacia {
-    
+    int a;
+    int b;
+    int c;
+    int d;
 }
