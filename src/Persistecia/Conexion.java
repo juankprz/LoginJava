@@ -19,24 +19,24 @@ import javax.swing.JOptionPane;
  * @author juan
  */
 public class Conexion {
-    public Connection conexion = null;
+    Connection conexion = null;
     Statement comando = null;
     ResultSet registro;
     private String sql;
     
-    
-      public  Connection conectar() {
+      public Connection conectar() {
  
         try {
             //Driver JDBC
             Class.forName("com.mysql.jdbc.Driver");
             //Nombre del servidor. localhost:3306 es la ruta y el puerto de la conexión MySQL
+            //panamahitek_text es el nombre que le dimos a la base de datos
             String servidor = "jdbc:mysql://localhost:3306/Datos";
-            //El root es el nombre de usuario por default
+            //El root es el nombre de usuario por default. No hay contraseña
             String usuario = "root";
             String pass = "juancamiloymarlys";
             //Se inicia la conexión
-             conexion = (Connection) DriverManager.getConnection(servidor, usuario, pass);
+            conexion = (Connection) DriverManager.getConnection(servidor, usuario, pass);
  
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex, "Error en la conexión a la base de datos: " + ex.getMessage(), JOptionPane.ERROR_MESSAGE);
@@ -54,22 +54,18 @@ public class Conexion {
     }
     public void Consultar( String sql) {
         String nombre = null;
-        String nombre1 = null;
         try {
-             Statement instancia =conectar().createStatement();
-             ResultSet rs = instancia.executeQuery(sql);
-           
+            Statement instancia =conectar().createStatement();
+            ResultSet rs = instancia.executeQuery(sql);
             while(rs.next()){
-             nombre=rs.getString("Nombre");
+              nombre=rs.getString("Nombre");
             }
             JOptionPane.showMessageDialog(null,""+nombre);
-          //c¿ierra conexion
-          conexion.close();
-          System.out.println(""+rs);
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
  
-       
 }
 }
