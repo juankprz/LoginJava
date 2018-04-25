@@ -106,8 +106,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String var="USUARIO";
-        String var3="123";
+       int consulta=0; int consulta1=0;
         String var2=jTextField1.getText();
         //Captura de contraseña
         char[] arrayC = jPasswordField1.getPassword(); 
