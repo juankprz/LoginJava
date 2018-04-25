@@ -9,5 +9,6 @@
  * @author 1103220136
  */
 public class clasesala {
-    
+    int numero;
+    int resultado;
 }
