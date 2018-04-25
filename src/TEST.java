@@ -21,7 +21,7 @@ public class TEST {
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         // TODO code application logic here
-        String sql="SELECT * FROM Usuarios Where Nombre='perez';";
+        String sql="SELECT * FROM Usuarios Where Nombre='juan';";
        verusuario obj = new verusuario();
        int consulta= obj.Consultarusuario(sql);
        System.out.println(""+consulta);
