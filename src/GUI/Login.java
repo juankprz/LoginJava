@@ -107,7 +107,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       int consulta=0; int consulta1=0;
+        String var="USUARIO";
+        String var3="123";
         String var2=jTextField1.getText();
         //Captura de contraseña
         char[] arrayC = jPasswordField1.getPassword(); 
@@ -120,7 +121,7 @@ public class Login extends javax.swing.JFrame {
        String sql="SELECT * FROM Usuarios Where Nombre='"+var2+"';";
      
        verusuario obj = new verusuario();
-        consulta= obj.Consultarusuario(sql);
+       int consulta= obj.Consultarusuario(sql);
       if(consulta==0){
           JOptionPane.showMessageDialog(null,"Usuario no encontrado");
            jTextField1.setText("");
@@ -128,18 +129,9 @@ public class Login extends javax.swing.JFrame {
         jTextField1.requestFocus();
       }
       if(consulta==1){
-           String sqll="SELECT * FROM Usuarios Where Nombre='"+var2+"';";
-          verusuario obj1 = new verusuario();
-          consulta1= obj1.Consultarpass(sql,pass);
-          if(consulta1==1){
-          JOptionPane.showMessageDialog(null,"BIENVENIDO");
-      }if(consulta1==0){
-           JOptionPane.showMessageDialog(null,"Contraseña incorrecta");
-            jPasswordField1.setText("");
-        jPasswordField1.requestFocus();
+          JOptionPane.showMessageDialog(null,"Usuario  encontrado");
+          
       }
-      }
-      
         }
        
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -20,13 +20,6 @@ public class TEST {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        // TODO code application logic here
-        String sql="SELECT * FROM Usuarios Where Nombre='perez';";
-       verusuario obj = new verusuario();
-       int consulta= obj.Consultarusuario(sql);
-       System.out.println(""+consulta);
-       
-      
-    }
+    
     
 }
